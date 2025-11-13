@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abdul Hakim - Bio Link</title>
+  <!-- Font Awesome CDN for social media icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
@@ -20,9 +21,7 @@
       width: 100%;
       max-width: 400px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
     }
-    main.card:hover { transform: scale(1.02); }
     .avatar img {
       width: 130px; height: 130px;
       border-radius: 50%; border: 4px solid #fff;
@@ -33,6 +32,7 @@
     .avatar img:hover { transform: scale(1.05); }
     h1#profileName { font-size: 28px; margin-bottom: 5px; }
     p.subtitle { font-size: 15px; opacity: 0.9; margin-bottom: 20px; }
+
     .links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
     .link-btn {
       display: flex; align-items: center;
@@ -45,7 +45,9 @@
     .link-btn:hover { background: rgba(255,255,255,0.35); transform: scale(1.03); }
     .link-icon { font-size: 22px; margin-right: 12px; width:24px; text-align:center; }
     .link-btn .small { font-size: 12px; opacity: 0.8; }
+
     footer { font-size: 12px; opacity: 0.7; }
+
     @media(max-width:480px){
       main.card { padding: 20px; }
       h1#profileName { font-size: 24px; }
@@ -56,25 +58,21 @@
 <body>
   <main class="card">
     <div class="avatar">
-      <img id="avatarImg" src="avatar.png" alt="Abdul Hakim">
+      <!-- Updated avatar image -->
+      <img id="avatarImg" src="1763026669531.png" alt="Abdul Hakim">
     </div>
     <h1 id="profileName">Abdul Hakim</h1>
     <p class="subtitle" id="profileBio">Developer • Content Creator • Tech Enthusiast</p>
+
     <div class="links" id="linksContainer"></div>
-    <a class="link-btn" href="about.html">
-      <div class="link-icon"><i class="fas fa-user"></i></div>
-      <div style="text-align:left">
-        <div style="font-weight:600">About Me</div>
-        <div class="small">See my details</div>
-      </div>
-    </a>
-    <footer>Made by MASTER-404</footer>
+    <footer>Made with ❤️ by MASTER-404</footer>
   </main>
+
   <script>
     const siteData = {
       name: 'Abdul Hakim',
       bio: 'Developer • Content Creator • Tech Enthusiast',
-      avatar: 'avatar.png',
+      avatar: '1763026669531.png',
       links: [
         { title: 'Facebook', url: 'https://facebook.com/Abdulhakimbd16', subtitle: 'Follow on Facebook', icon: 'fab fa-facebook-f' },
         { title: 'Instagram', url: 'https://instagram.com/Abdulhakimbd16', subtitle: 'Follow on Instagram', icon: 'fab fa-instagram' },
@@ -85,9 +83,11 @@
         { title: 'LinkedIn', url: 'https://www.linkedin.com/in/abdul-hakim-4953b6396/', subtitle: 'Connect on LinkedIn', icon: 'fab fa-linkedin-in' }
       ]
     }
+
     document.getElementById('profileName').textContent = siteData.name
     document.getElementById('profileBio').textContent = siteData.bio
     document.getElementById('avatarImg').src = siteData.avatar
+
     const linksContainer = document.getElementById('linksContainer')
     siteData.links.forEach(l => {
       const a = document.createElement('a')
@@ -95,9 +95,11 @@
       a.href = l.url
       a.target = '_blank'
       a.rel = 'noopener'
-      a.innerHTML = `<div class="link-icon"><i class="${l.icon}"></i></div>` +
-                    `<div style="text-align:left"><div style="font-weight:600">${l.title}</div>` +
-                    `<div class="small">${l.subtitle}</div></div>`
+      a.innerHTML = `<div class="link-icon"><i class="${l.icon}"></i></div>
+                     <div style="text-align:left">
+                       <div style="font-weight:600">${l.title}</div>
+                       <div class="small">${l.subtitle}</div>
+                     </div>`
       linksContainer.appendChild(a)
     })
   </script>
