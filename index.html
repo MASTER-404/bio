@@ -1,106 +1,156 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdul Hakim - Bio Link</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
-    body {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      display: flex; justify-content: center; align-items: center;
-      min-height: 100vh; color: #fff;
-    }
-    main.card {
-      background: rgba(0,0,0,0.5);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .avatar img {
-      width: 130px; height: 130px;
-      border-radius: 50%; border: 4px solid #fff;
-      object-fit: cover; margin-bottom: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-    .avatar img:hover { transform: scale(1.05); }
-    h1#profileName { font-size: 28px; margin-bottom: 5px; }
-    p.subtitle { font-size: 15px; opacity: 0.9; margin-bottom: 20px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdul Hakim - Bio Link</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Orbitron', sans-serif; }
 
-    .links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-    .link-btn {
-      display: flex; align-items: center;
-      background: rgba(255,255,255,0.15);
-      padding: 12px 15px;
-      border-radius: 12px;
-      text-decoration: none; color: #fff;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .link-btn:hover { background: rgba(255,255,255,0.35); transform: scale(1.03); }
-    .link-icon { font-size: 22px; margin-right: 12px; width:24px; text-align:center; }
-    .link-btn .small { font-size: 12px; opacity: 0.8; }
+  body {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; color: #fff;
+  }
 
-    footer { font-size: 12px; opacity: 0.7; }
+  main.card {
+    background: rgba(0,0,0,0.65);
+    padding: 35px 25px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 30px #00ffff, 0 0 60px #ff00ff;
+    animation: pulseCard 4s infinite alternate;
+  }
 
-    @media(max-width:480px){
-      main.card { padding: 20px; }
-      h1#profileName { font-size: 24px; }
-      .avatar img { width: 110px; height: 110px; }
-    }
-  </style>
+  @keyframes pulseCard {
+    0% { box-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff; }
+    50% { box-shadow: 0 0 25px #00ffff, 0 0 50px #ff00ff; }
+    100% { box-shadow: 0 0 35px #00ffff, 0 0 70px #ff00ff; }
+  }
+
+  .avatar img {
+    width: 130px; height: 130px;
+    border-radius: 50%; border: 3px solid #fff;
+    object-fit: cover; margin-bottom: 15px;
+    box-shadow: 0 0 15px #00ffff;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .avatar img:hover {
+    transform: scale(1.12) rotate(5deg);
+    box-shadow: 0 0 40px #00ffff, 0 0 60px #ff00ff;
+  }
+
+  h1#profileName {
+    font-size: 30px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+  }
+
+  p.subtitle {
+    font-size: 15px;
+    opacity: 0.9;
+    margin-bottom: 25px;
+    text-shadow: 0 0 5px #00ffff;
+  }
+
+  .links { display: flex; flex-direction: column; gap: 18px; margin-bottom: 20px; }
+
+  .link-btn {
+    display: flex; align-items: center;
+    padding: 13px 15px;
+    border-radius: 15px;
+    text-decoration: none; color: #fff;
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    background-size: 300% 300%;
+  }
+
+  .link-btn .link-icon { font-size: 22px; margin-right: 12px; width:24px; text-align:center; }
+  .link-btn .small { font-size: 12px; opacity: 0.85; display: block; line-height: 1.2; }
+
+  /* Neon Gradient + Glow */
+  .facebook { color:#3b5998; background: linear-gradient(45deg, #3b5998, #8b9dc3, #3b5998, #8b9dc3); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #3b5998, 0 0 15px #8b9dc3; }
+  .instagram { color:#feda75; background: linear-gradient(45deg, #feda75, #d62976, #f58529, #bc2a8d); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #feda75, 0 0 15px #d62976; }
+  .tiktok { color:#69C9D0; background: linear-gradient(45deg, #69C9D0, #EE1D52, #69C9D0, #EE1D52); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #69C9D0, 0 0 15px #EE1D52; }
+  .github { color:#fff; background: linear-gradient(45deg, #333, #6e5494, #333, #6e5494); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #fff, 0 0 15px #6e5494; }
+  .telegram { color:#00bfff; background: linear-gradient(45deg, #0088cc, #00bfff, #0088cc, #00bfff); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #00bfff, 0 0 15px #0088cc; }
+  .whatsapp { color:#25D366; background: linear-gradient(45deg, #25D366, #128C7E, #25D366, #128C7E); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #25D366, 0 0 15px #128C7E; }
+  .linkedin { color:#0077b5; background: linear-gradient(45deg, #0077b5, #00a0dc, #0077b5, #00a0dc); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #0077b5, 0 0 15px #00a0dc; }
+  .about { color:#ff512f; background: linear-gradient(45deg, #ff512f, #dd2476, #ff512f, #dd2476); animation: gradientMove 3s linear infinite; text-shadow: 0 0 5px #ff512f, 0 0 15px #dd2476; }
+
+  .link-btn:hover { transform: scale(1.1); box-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor; }
+
+  @keyframes gradientMove {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+
+  footer { font-size: 12px; opacity: 0.7; text-shadow: 0 0 5px #fff; }
+
+  @media(max-width:480px){
+    main.card { padding: 20px; }
+    h1#profileName { font-size: 24px; }
+    .avatar img { width: 110px; height: 110px; }
+  }
+</style>
 </head>
 <body>
-  <main class="card">
-    <div class="avatar">
-      <img id="avatarImg" src="1763026669531.png" alt="Abdul Hakim">
-    </div>
-    <h1 id="profileName">Abdul Hakim</h1>
-    <p class="subtitle" id="profileBio">Developer • Content Creator • Tech Enthusiast</p>
+<main class="card">
+  <div class="avatar">
+    <img id="avatarImg" src="1763026669531.png" alt="Abdul Hakim">
+  </div>
+  <h1 id="profileName">Abdul Hakim</h1>
+  <p class="subtitle" id="profileBio">Developer • Content Creator • Tech Enthusiast</p>
+  <div class="links" id="linksContainer"></div>
+  <footer>Made with ❤️ by MASTER-404</footer>
+</main>
 
-    <div class="links" id="linksContainer"></div>
-    <footer>Made with ❤️ by MASTER-404</footer>
-  </main>
+<script>
+  const siteData = {
+    name: 'Abdul Hakim',
+    bio: 'Developer • Content Creator • Tech Enthusiast',
+    avatar: '1763026669531.png',
+    links: [
+      { title: 'Facebook', url: 'https://facebook.com/Abdulhakimbd16', icon: 'fab fa-facebook-f', class: 'facebook', subtitle: 'Follow on Facebook' },
+      { title: 'Instagram', url: 'https://instagram.com/Abdulhakimbd16', icon: 'fab fa-instagram', class: 'instagram', subtitle: 'Follow on Instagram' },
+      { title: 'TikTok', url: 'https://www.tiktok.com/@abdul.hakim.69', icon: 'fab fa-tiktok', class: 'tiktok', subtitle: 'Watch my TikTok videos' },
+      { title: 'GitHub', url: 'https://github.com/master-404', icon: 'fab fa-github', class: 'github', subtitle: 'Explore my projects' },
+      { title: 'Telegram', url: 'https://t.me/AbdulHakimbd0', icon: 'fab fa-telegram-plane', class: 'telegram', subtitle: 'Join me on Telegram' },
+      { title: 'WhatsApp', url: 'https://wa.me/9710589391569', icon: 'fab fa-whatsapp', class: 'whatsapp', subtitle: 'Chat on WhatsApp' },
+      { title: 'LinkedIn', url: 'https://www.linkedin.com/in/abdul-hakim-4953b6396/', icon: 'fab fa-linkedin-in', class: 'linkedin', subtitle: 'Connect on LinkedIn' },
+      { title: 'About Me', url: 'about.html', icon: 'fas fa-user', class: 'about', subtitle: 'Learn more about me' }
+    ]
+  }
 
-  <script>
-    const siteData = {
-      name: 'Abdul Hakim',
-      bio: 'Developer • Content Creator • Tech Enthusiast',
-      avatar: '1763026669531.png',
-      links: [
-        { title: 'Facebook', url: 'https://facebook.com/Abdulhakimbd16', subtitle: 'Follow on Facebook', icon: 'fab fa-facebook-f' },
-        { title: 'Instagram', url: 'https://instagram.com/Abdulhakimbd16', subtitle: 'Follow on Instagram', icon: 'fab fa-instagram' },
-        { title: 'TikTok', url: 'https://www.tiktok.com/@abdul.hakim.69', subtitle: 'Watch my TikTok videos', icon: 'fab fa-tiktok' },
-        { title: 'GitHub', url: 'https://github.com/master404cyber', subtitle: 'Explore my projects', icon: 'fab fa-github' },
-        { title: 'Telegram', url: 'https://t.me/AbdulHakimbd0', subtitle: 'Join me on Telegram', icon: 'fab fa-telegram-plane' },
-        { title: 'WhatsApp', url: 'https://wa.me/9710589391569', subtitle: 'Chat on WhatsApp', icon: 'fab fa-whatsapp' },
-        { title: 'LinkedIn', url: 'https://www.linkedin.com/in/abdul-hakim-4953b6396/', subtitle: 'Connect on LinkedIn', icon: 'fab fa-linkedin-in' },
-        { title: 'About Me', url: 'about.html', subtitle: 'Learn more about me', icon: 'fas fa-user' }
-      ]
-    }
+  document.getElementById('profileName').textContent = siteData.name
+  document.getElementById('profileBio').textContent = siteData.bio
+  document.getElementById('avatarImg').src = siteData.avatar
 
-    document.getElementById('profileName').textContent = siteData.name
-    document.getElementById('profileBio').textContent = siteData.bio
-    document.getElementById('avatarImg').src = siteData.avatar
-
-    const linksContainer = document.getElementById('linksContainer')
-    siteData.links.forEach(l => {
-      const a = document.createElement('a')
-      a.className = 'link-btn'
-      a.href = l.url
-      a.target = '_blank'
-      a.rel = 'noopener'
-      a.innerHTML = `<div class="link-icon"><i class="${l.icon}"></i></div>
-                     <div style="text-align:left">
-                       <div style="font-weight:600">${l.title}</div>
-                       <div class="small">${l.subtitle}</div>
-                     </div>`
-      linksContainer.appendChild(a)
-    })
-  </script>
+  const linksContainer = document.getElementById('linksContainer')
+  siteData.links.forEach(l => {
+    const a = document.createElement('a')
+    a.className = 'link-btn ' + l.class
+    a.href = l.url
+    a.target = '_blank'
+    a.rel = 'noopener noreferrer'
+    a.innerHTML = `<div class="link-icon"><i class="${l.icon}"></i></div>
+                   <div style="text-align:left">
+                     <div>${l.title}</div>
+                     <div class="small">${l.subtitle}</div>
+                   </div>`
+    linksContainer.appendChild(a)
+  })
+</script>
 </body>
 </html>
