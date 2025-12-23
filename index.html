@@ -5,19 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abdul Hakim - Bio Link</title>
 
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<!-- Optional: web font -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', Arial, sans-serif;
-  }
-
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', Arial, sans-serif; }
   body {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     display: flex;
@@ -26,286 +20,76 @@
     min-height: 100vh;
     color: #fff;
   }
-
   main.card {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.55);
     padding: 30px 25px;
     border-radius: 25px;
     text-align: center;
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
   }
-
-  /* MASTER404 logo at the top */
-  .main-logo {
-    width: 100%;
-    max-width: 320px;
-    display: block;
-    margin: 0 auto 20px;
-    filter: drop-shadow(0 0 18px #00e5ff);
-    animation: logoFloat 4s ease-in-out infinite;
+  .main-logo { width:100%; max-width:320px; display:block; margin:0 auto 20px; filter: drop-shadow(0 0 18px #00e5ff); animation: logoFloat 4s ease-in-out infinite; }
+  @keyframes logoFloat { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-6px);} }
+  .top-line { height:3px; width:90%; margin:0 auto 18px; background: linear-gradient(90deg, #00e5ff, #00b0ff, #00e5ff); box-shadow:0 0 12px rgba(0,229,255,0.7); position:relative; overflow:hidden; }
+  .top-line::after { content:''; position:absolute; top:0; left:-20%; height:100%; width:20%; background: rgba(255,255,255,0.9); box-shadow:0 0 18px #fff; animation: lineScan 2.4s linear infinite; }
+  @keyframes lineScan { 0% { left:-20%; } 100% { left:100%; } }
+  .avatar img { width:130px; height:130px; border-radius:50%; object-fit:cover; margin-bottom:15px; border:3px solid rgba(255,255,255,0.5); transition: transform 0.3s, box-shadow 0.3s; }
+  .avatar img:hover { transform: scale(1.08) rotate(3deg); box-shadow: 0 0 25px #00ffff,0 0 35px #ff00ff; }
+  h1#profileName { font-size:28px; margin-bottom:5px; text-shadow:0 0 10px #fff; }
+  p.subtitle { font-size:15px; opacity:0.9; margin-bottom:25px; text-shadow:0 0 5px #fff; }
+  .links { display:flex; flex-direction:column; gap:15px; margin-bottom:20px; }
+  .link-btn { display:flex; align-items:center; padding:12px 15px; border-radius:15px; text-decoration:none; color:#fff; font-weight:600; font-size:15px; position:relative; overflow:hidden; transition: transform 0.2s, box-shadow 0.3s; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border:1px solid rgba(0,229,255,0.6); box-shadow:0 0 12px rgba(0,229,255,0.35); cursor:pointer; }
+  .link-btn::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background: linear-gradient(45deg,#00e5ff,#00b0ff,#00e5ff,#ffffff); background-size:400% 400%; filter:blur(15px); opacity:0.4; z-index:0; border-radius:15px; animation:gradientMove 8s linear infinite; }
+  .link-btn > * { position:relative; z-index:1; }
+  @keyframes gradientMove { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; }
   }
-
-  @keyframes logoFloat {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-6px); }
-  }
-
-  /* animated tech line under logo */
-  .top-line {
-    height: 3px;
-    width: 90%;
-    margin: 0 auto 18px;
-    background: linear-gradient(90deg, #00e5ff, #00b0ff, #00e5ff);
-    box-shadow: 0 0 12px rgba(0, 229, 255, 0.7);
-    position: relative;
-    overflow: hidden;
-  }
-  .top-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -20%;
-    height: 100%;
-    width: 20%;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 18px #fff;
-    animation: lineScan 2.4s linear infinite;
-  }
-  @keyframes lineScan {
-    0%   { left: -20%; }
-    100% { left: 100%; }
-  }
-
-  .avatar img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid rgba(255, 255, 255, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .avatar img:hover {
-    transform: scale(1.08) rotate(3deg);
-    box-shadow: 0 0 25px #00ffff, 0 0 35px #ff00ff;
-  }
-
-  h1#profileName {
-    font-size: 28px;
-    margin-bottom: 5px;
-    text-shadow: 0 0 10px #fff;
-  }
-
-  p.subtitle {
-    font-size: 15px;
-    opacity: 0.9;
-    margin-bottom: 25px;
-    text-shadow: 0 0 5px #fff;
-  }
-
-  .links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-
-  /* glassmorphism + neon buttons */
-  .link-btn {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    border-radius: 15px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.3s;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 229, 255, 0.6);
-    box-shadow: 0 0 12px rgba(0, 229, 255, 0.35);
-    cursor: pointer;
-  }
-
-  .link-btn::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      45deg,
-      #00e5ff,
-      #00b0ff,
-      #00e5ff,
-      #ffffff
-    );
-    background-size: 400% 400%;
-    filter: blur(15px);
-    opacity: 0.4;
-    z-index: 0;
-    border-radius: 15px;
-    animation: gradientMove 8s linear infinite;
-    transition: opacity 0.3s;
-  }
-
-  .link-btn > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  @keyframes gradientMove {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .link-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 0 18px rgba(0, 229, 255, 0.55);
-  }
-  .link-btn:hover::before {
-    opacity: 0.7;
-  }
-
-  /* click pulse */
-  .pulse {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0.7;
-    pointer-events: none;
-    animation: pulseAnim 0.5s ease-out forwards;
-  }
-  @keyframes pulseAnim {
-    0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.7; }
-    70%  { transform: translate(-50%, -50%) scale(3); opacity: 0.3; }
-    100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
-  }
-
-  .link-icon {
-    font-size: 22px;
-    margin-right: 12px;
-    width: 24px;
-    text-align: center;
-  }
-
-  .link-btn .small {
-    font-size: 12px;
-    opacity: 0.8;
-    display: block;
-    line-height: 1.2;
-  }
-
-  footer {
-    font-size: 12px;
-    opacity: 0.7;
-    margin-top: 5px;
-  }
-
-  @media (max-width: 480px) {
-    main.card { padding: 20px; }
-    h1#profileName { font-size: 24px; }
-    .avatar img { width: 110px; height: 110px; }
-    .main-logo { max-width: 260px; }
-  }
+  .link-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow:0 0 18px rgba(0,229,255,0.55);}
+  .link-btn:hover::before { opacity:0.7; }
+  .pulse { position:absolute; left:50%; top:50%; width:10px; height:10px; border-radius:50%; transform:translate(-50%,-50%) scale(0); opacity:0.7; pointer-events:none; animation:pulseAnim 0.5s ease-out forwards; }
+  @keyframes pulseAnim { 0%{transform:translate(-50%,-50%) scale(0);opacity:0.7;} 70%{transform:translate(-50%,-50%) scale(3);opacity:0.3;} 100%{transform:translate(-50%,-50%) scale(4);opacity:0;} }
+  .link-icon { font-size:22px; margin-right:12px; width:24px; text-align:center; }
+  .link-btn .small { font-size:12px; opacity:0.8; display:block; line-height:1.2; }
+  footer { font-size:12px; opacity:0.7; margin-top:5px; }
+  @media(max-width:480px){ main.card{padding:20px;} h1#profileName{font-size:24px;} .avatar img{width:110px;height:110px;} .main-logo{max-width:260px;} }
 </style>
 </head>
 <body>
 <main class="card">
-  <!-- MASTER404 neon logo from GitHub -->
-  <img src="https://raw.githubusercontent.com/MASTER-404/bio/main/logo.png"
-       alt="MASTER404 Logo"
-       class="main-logo">
-
+  <img src="https://raw.githubusercontent.com/MASTER-404/bio/main/logo.png" alt="MASTER404 Logo" class="main-logo">
   <div class="top-line"></div>
-
   <div class="avatar">
     <img id="avatarImg" src="1763026669531.png" alt="Abdul Hakim">
   </div>
-
   <h1 id="profileName">Abdul Hakim</h1>
   <p class="subtitle" id="profileBio">Developer • Content Creator • Tech Enthusiast</p>
-
   <div class="links" id="linksContainer"></div>
-
   <footer>Made with ❤️ by MASTER404</footer>
 </main>
 
+<!-- Audio -->
+<audio id="bgMusic" loop>
+  <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+</audio>
+<audio id="clickSound">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 const siteData = {
-  name: 'Abdul Hakim',
-  bio: 'Developer • Content Creator • Tech Enthusiast',
-  avatar: '1763026669531.png',
-  links: [
-    {
-      title: 'Facebook',
-      url: 'https://facebook.com/Abdulhakimbd16',
-      icon: 'fab fa-facebook-f',
-      subtitle: 'Follow on Facebook',
-      color: '#1877F2'
-    },
-    {
-      title: 'Instagram',
-      url: 'https://instagram.com/Abdulhakimbd16',
-      icon: 'fab fa-instagram',
-      subtitle: 'Follow on Instagram',
-      color: '#E1306C'
-    },
-    {
-      title: 'TikTok',
-      url: 'https://www.tiktok.com/@abdul.hakim.69',
-      icon: 'fab fa-tiktok',
-      subtitle: 'Watch my TikTok videos',
-      color: '#010101'
-    },
-    {
-      title: 'GitHub',
-      url: 'https://github.com/master-404',
-      icon: 'fab fa-github',
-      subtitle: 'Explore my projects',
-      color: '#333'
-    },
-    {
-      title: 'Telegram',
-      url: 'https://t.me/AbdulHakimbd0',
-      icon: 'fab fa-telegram-plane',
-      subtitle: 'Join me on Telegram',
-      color: '#0088cc'
-    },
-    {
-      title: 'WhatsApp',
-      url: 'https://wa.me/9710589391569',
-      icon: 'fab fa-whatsapp',
-      subtitle: 'Chat on WhatsApp',
-      color: '#25D366'
-    },
-    {
-      title: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/abdul-hakim-4953b6396/',
-      icon: 'fab fa-linkedin-in',
-      subtitle: 'Connect on LinkedIn',
-      color: '#0A66C2'
-    },
-    {
-      title: 'About Me',
-      url: 'about.html',
-      icon: 'fas fa-user',
-      subtitle: 'Learn more about me',
-      color: '#FF00FF'
-    }
+  name:'Abdul Hakim',
+  bio:'Developer • Content Creator • Tech Enthusiast',
+  avatar:'1763026669531.png',
+  links:[
+    {title:'Facebook', url:'https://facebook.com/Abdulhakimbd16', icon:'fab fa-facebook-f', subtitle:'Follow on Facebook', color:'#1877F2'},
+    {title:'Instagram', url:'https://instagram.com/Abdulhakimbd16', icon:'fab fa-instagram', subtitle:'Follow on Instagram', color:'#E1306C'},
+    {title:'TikTok', url:'https://www.tiktok.com/@abdul.hakim.69', icon:'fab fa-tiktok', subtitle:'Watch my TikTok videos', color:'#010101'},
+    {title:'GitHub', url:'https://github.com/master-404', icon:'fab fa-github', subtitle:'Explore my projects', color:'#333'},
+    {title:'Telegram', url:'https://t.me/AbdulHakimbd0', icon:'fab fa-telegram-plane', subtitle:'Join me on Telegram', color:'#0088cc'},
+    {title:'WhatsApp', url:'https://wa.me/9710589391569', icon:'fab fa-whatsapp', subtitle:'Chat on WhatsApp', color:'#25D366'},
+    {title:'LinkedIn', url:'https://www.linkedin.com/in/abdul-hakim-4953b6396/', icon:'fab fa-linkedin-in', subtitle:'Connect on LinkedIn', color:'#0A66C2'},
+    {title:'About Me', url:'about.html', icon:'fas fa-user', subtitle:'Learn more about me', color:'#FF00FF'}
   ]
 };
 
@@ -314,33 +98,44 @@ document.getElementById('profileBio').textContent = siteData.bio;
 document.getElementById('avatarImg').src = siteData.avatar;
 
 const linksContainer = document.getElementById('linksContainer');
+const clickSound = document.getElementById('clickSound');
+const bgMusic = document.getElementById('bgMusic');
 
-siteData.links.forEach(l => {
+siteData.links.forEach(link=>{
   const a = document.createElement('a');
-  a.className = 'link-btn';
-  a.href = l.url;
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
-  a.dataset.color = l.color;
-  a.innerHTML = `
-    <div class="link-icon"><i class="${l.icon}"></i></div>
+  a.className='link-btn';
+  a.href = link.url;
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  a.dataset.color = link.color;
+  a.innerHTML=`
+    <div class="link-icon"><i class="${link.icon}"></i></div>
     <div style="text-align:left">
-      <div>${l.title}</div>
-      <div class="small">${l.subtitle}</div>
+      <div>${link.title}</div>
+      <div class="small">${link.subtitle}</div>
     </div>
   `;
 
-  // click pulse effect
-  a.addEventListener('click', () => {
-    const pulse = document.createElement('span');
-    pulse.className = 'pulse';
-    pulse.style.backgroundColor = l.color;
+  a.addEventListener('click',()=>{
+    clickSound.currentTime=0;
+    clickSound.play();
+    const pulse=document.createElement('span');
+    pulse.className='pulse';
+    pulse.style.backgroundColor = link.color;
     a.appendChild(pulse);
-    setTimeout(() => pulse.remove(), 500);
+    setTimeout(()=>pulse.remove(),500);
   });
 
   linksContainer.appendChild(a);
 });
+
+// Play background music on first click
+document.body.addEventListener('click', ()=>{
+  if(bgMusic.paused){
+    bgMusic.volume=0.25;
+    bgMusic.play();
+  }
+},{once:true});
 </script>
 </body>
 </html>
