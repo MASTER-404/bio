@@ -4,69 +4,481 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abdul Hakim - Bio Link</title>
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', Arial, sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  
   body {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Poppins', sans-serif;
+    background: #0a0e27;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: #fff;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
   }
+  
+  .bg-animation {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe, #00f2fe, #4facfe);
+    background-size: 400% 400%;
+    animation: gradientFlow 20s ease infinite;
+  }
+  
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 100%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 0%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    animation: particleFloat 15s infinite ease-in-out;
+  }
+  
+  @keyframes particleFloat {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+  }
+  
+  .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+  .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+  .particle:nth-child(4) { left: 40%; animation-delay: 1s; }
+  .particle:nth-child(5) { left: 50%; animation-delay: 3s; }
+  .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+  .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; }
+  .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; }
+  .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; }
+  
   main.card {
-    background: rgba(0,0,0,0.55);
-    padding: 30px 25px;
-    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    padding: 45px 35px;
+    border-radius: 35px;
     text-align: center;
     width: 100%;
-    max-width: 420px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    backdrop-filter: blur(12px);
+    max-width: 460px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4), 
+                0 0 0 1px rgba(255, 255, 255, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 2;
+    animation: cardEntry 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid rgba(255, 255, 255, 0.18);
   }
+  
+  @keyframes cardEntry {
+    from { opacity: 0; transform: translateY(50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
   .main-logo {
     width: 100%;
-    max-width: 340px;
+    max-width: 320px;
     display: block;
-    margin: 0 auto 25px;
-    filter: drop-shadow(0 0 20px #00e5ff);
+    margin: 0 auto 35px;
+    filter: drop-shadow(0 5px 30px rgba(255,255,255,0.6));
     animation: logoFloat 4s ease-in-out infinite;
+    transition: transform 0.3s;
   }
-  @keyframes logoFloat { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-8px);} }
-  .top-line { height:4px; width:90%; margin:0 auto 20px; background: linear-gradient(90deg, #00e5ff, #00b0ff, #00e5ff); box-shadow:0 0 15px rgba(0,229,255,0.8); position:relative; overflow:hidden; border-radius:2px; }
-  .top-line::after { content:''; position:absolute; top:0; left:-30%; height:100%; width:30%; background: rgba(255,255,255,0.8); box-shadow:0 0 20px #fff; animation: lineScan 2s linear infinite; }
-  @keyframes lineScan { 0% { left:-30%; } 100% { left:100%; } }
-  .avatar img { width:140px; height:140px; border-radius:50%; object-fit:cover; margin-bottom:18px; border:4px solid rgba(0,229,255,0.6); transition: all 0.4s; box-shadow: 0 0 20px rgba(0,229,255,0.4); }
-  .avatar img:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 0 30px #00ffff, 0 0 50px #00e5ff; }
-  h1#profileName { font-size:30px; margin-bottom:6px; text-shadow:0 0 12px #00e5ff; }
-  p.subtitle { font-size:16px; opacity:0.9; margin-bottom:30px; }
-  .links { display:flex; flex-direction:column; gap:16px; margin-bottom:20px; }
-  .link-btn { display:flex; align-items:center; padding:14px 18px; border-radius:18px; text-decoration:none; color:#fff; font-weight:600; font-size:16px; position:relative; overflow:hidden; transition: all 0.3s; background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border:1px solid rgba(0,229,255,0.7); box-shadow:0 0 15px rgba(0,229,255,0.4); }
-  .link-btn::before { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); transform: translateX(-100%); transition: transform 0.6s; }
-  .link-btn:hover::before { transform: translateX(100%); }
-  .link-btn:hover { transform: translateY(-4px) scale(1.04); box-shadow:0 0 25px rgba(0,229,255,0.7); }
-  .link-icon { font-size:24px; margin-right:15px; width:28px; text-align:center; }
-  .link-btn .small { font-size:13px; opacity:0.85; display:block; margin-top:4px; }
-  footer { font-size:13px; opacity:0.7; margin-top:10px; }
-  @media(max-width:480px){ main.card{padding:25px 20px;} h1#profileName{font-size:26px;} .avatar img{width:120px;height:120px;} .main-logo{max-width:280px;} .link-btn{font-size:15px; padding:12px 16px;} }
+  
+  .main-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 8px 40px rgba(255,255,255,0.8));
+  }
+  
+  @keyframes logoFloat { 
+    0%, 100% { transform: translateY(0) rotate(0deg); } 
+    50% { transform: translateY(-12px) rotate(2deg); } 
+  }
+  
+  .glow-line {
+    height: 4px;
+    width: 85%;
+    margin: 0 auto 30px;
+    background: linear-gradient(90deg, transparent, #00f2fe, #4facfe, #00f2fe, transparent);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+  }
+  
+  .glow-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    animation: lineShine 2s linear infinite;
+  }
+  
+  @keyframes lineShine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+  }
+  
+  .avatar-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 25px;
+  }
+  
+  .avatar-ring {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f093fb, #ff6b6b);
+    background-size: 300% 300%;
+    animation: ringRotate 4s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes ringRotate {
+    0% { transform: rotate(0deg); background-position: 0% 50%; }
+    100% { transform: rotate(360deg); background-position: 100% 50%; }
+  }
+  
+  .avatar-container img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255,255,255,0.9);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.3);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+  }
+  
+  .avatar-container:hover img {
+    transform: scale(1.15) rotate(8deg);
+    box-shadow: 0 20px 70px rgba(0,0,0,0.5), 0 0 50px rgba(255,255,255,0.5);
+  }
+  
+  h1#profileName {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(255,255,255,0.5), 2px 2px 10px rgba(0,0,0,0.3);
+    animation: textPulse 3s ease-in-out infinite;
+    letter-spacing: 1px;
+  }
+  
+  @keyframes textPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0.4), 2px 2px 10px rgba(0,0,0,0.3); }
+    50% { text-shadow: 0 0 40px rgba(255,255,255,0.8), 0 0 60px rgba(79, 172, 254, 0.6); }
+  }
+  
+  p.subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 40px;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  
+  .link-btn {
+    display: flex;
+    align-items: center;
+    padding: 18px 22px;
+    border-radius: 22px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    opacity: 0;
+    animation: linkFadeIn 0.6s ease forwards;
+  }
+  
+  @keyframes linkFadeIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  .link-btn:nth-child(1) { animation-delay: 0.1s; }
+  .link-btn:nth-child(2) { animation-delay: 0.2s; }
+  .link-btn:nth-child(3) { animation-delay: 0.3s; }
+  .link-btn:nth-child(4) { animation-delay: 0.4s; }
+  .link-btn:nth-child(5) { animation-delay: 0.5s; }
+  .link-btn:nth-child(6) { animation-delay: 0.6s; }
+  .link-btn:nth-child(7) { animation-delay: 0.7s; }
+  .link-btn:nth-child(8) { animation-delay: 0.8s; }
+  .link-btn:nth-child(9) { animation-delay: 0.9s; }
+  
+  .link-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s;
+  }
+  
+  .link-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .link-btn:hover::before {
+    left: 100%;
+  }
+  
+  .link-btn:hover::after {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .link-btn:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35), 0 0 30px rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.28);
+  }
+  
+  .link-btn:active {
+    transform: translateY(-4px) scale(1.02);
+  }
+  
+  .link-icon {
+    font-size: 28px;
+    margin-right: 20px;
+    width: 32px;
+    text-align: center;
+    transition: all 0.4s;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+  
+  .link-btn:hover .link-icon {
+    transform: scale(1.3) rotate(15deg);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  }
+  
+  .link-text {
+    text-align: left;
+    flex: 1;
+    z-index: 1;
+  }
+  
+  .link-title {
+    display: block;
+    font-size: 17px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .link-subtitle {
+    font-size: 13px;
+    opacity: 0.9;
+    display: block;
+    margin-top: 4px;
+    font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  }
+  
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 4px;
+  }
+  
+  footer {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 20px;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    animation: footerGlow 2s ease-in-out infinite;
+  }
+  
+  @keyframes footerGlow {
+    0%, 100% { text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    50% { text-shadow: 0 0 15px rgba(255,255,255,0.6); }
+  }
+  
+  .music-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+  
+  .music-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  
+  .music-toggle.playing {
+    animation: musicPulse 1s ease-in-out infinite;
+  }
+  
+  @keyframes musicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(79, 172, 254, 0.6); }
+  }
+  
+  @media(max-width:520px) {
+    main.card { 
+      padding: 35px 25px; 
+      max-width: 96%; 
+      border-radius: 30px;
+    }
+    h1#profileName { font-size: 30px; }
+    .avatar-container img { width: 140px; height: 140px; }
+    .main-logo { max-width: 260px; }
+    .link-btn { font-size: 15px; padding: 16px 20px; }
+    .link-icon { font-size: 24px; margin-right: 16px; }
+    .stats-container { padding: 15px; }
+    .stat-number { font-size: 20px; }
+    .music-toggle { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 20px; }
+  }
 </style>
 </head>
 <body>
+<div class="bg-animation"></div>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
 <main class="card">
   <img src="https://raw.githubusercontent.com/MASTER-404/bio/main/logo.png" alt="MASTER404 Logo" class="main-logo">
-  <div class="top-line"></div>
-  <div class="avatar">
+  
+  <div class="glow-line"></div>
+  
+  <div class="avatar-container">
+    <div class="avatar-ring"></div>
     <img id="avatarImg" src="1763026669531.png" alt="Abdul Hakim">
   </div>
+  
   <h1 id="profileName">Abdul Hakim</h1>
   <p class="subtitle" id="profileBio">Developer • Content Creator • Tech Enthusiast</p>
+  
+  <div class="stats-container">
+    <div class="stat-item">
+      <span class="stat-number" id="projectCount">0</span>
+      <span class="stat-label">Projects</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" id="followerCount">0</span>
+      <span class="stat-label">Followers</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" id="codeHours">0</span>
+      <span class="stat-label">Code Hours</span>
+    </div>
+  </div>
+  
   <div class="links" id="linksContainer"></div>
+  
   <footer>Made with ❤️ by MASTER404</footer>
 </main>
+
+<div class="music-toggle" id="musicToggle">
+  <i class="fas fa-music"></i>
+</div>
 
 <audio id="bgMusic" loop>
   <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
@@ -77,19 +489,24 @@
 
 <script>
 const siteData = {
-  name:'Abdul Hakim',
-  bio:'Developer • Content Creator • Tech Enthusiast',
-  avatar:'1763026669531.png',
-  links:[
-    {title:'Facebook', url:'https://facebook.com/Abdulhakimbd16', icon:'fab fa-facebook-f', subtitle:'Follow on Facebook', color:'#1877F2'},
-    {title:'Instagram', url:'https://instagram.com/Abdulhakimbd16', icon:'fab fa-instagram', subtitle:'Follow on Instagram', color:'#E1306C'},
-    {title:'TikTok', url:'https://www.tiktok.com/@abdul.hakim.69', icon:'fab fa-tiktok', subtitle:'Watch my TikTok videos', color:'#000000'},
-    {title:'YouTube', url:'https://www.youtube.com/@YourChannel', icon:'fab fa-youtube', subtitle:'Subscribe on YouTube', color:'#FF0000'}, // <-- নতুন লিঙ্ক, তোমার চ্যানেল লিঙ্ক দিয়ে চেঞ্জ করো
-    {title:'GitHub', url:'https://github.com/master-404', icon:'fab fa-github', subtitle:'Explore my projects', color:'#333'},
-    {title:'Telegram', url:'https://t.me/AbdulHakimbd0', icon:'fab fa-telegram-plane', subtitle:'Join me on Telegram', color:'#0088cc'},
-    {title:'WhatsApp', url:'https://wa.me/9710589391569', icon:'fab fa-whatsapp', subtitle:'Chat on WhatsApp', color:'#25D366'},
-    {title:'LinkedIn', url:'https://www.linkedin.com/in/abdul-hakim-4953b6396/', icon:'fab fa-linkedin-in', subtitle:'Connect on LinkedIn', color:'#0A66C2'},
-    {title:'About Me', url:'about.html', icon:'fas fa-user', subtitle:'Learn more about me', color:'#00e5ff'}
+  name: 'Abdul Hakim',
+  bio: 'Developer • Content Creator • Tech Enthusiast',
+  avatar: '1763026669531.png',
+  stats: {
+    projects: 42,
+    followers: 1200,
+    codeHours: 5000
+  },
+  links: [
+    {title: 'Facebook', url: 'https://facebook.com/Abdulhakimbd16', icon: 'fab fa-facebook-f', subtitle: 'Follow on Facebook'},
+    {title: 'Instagram', url: 'https://instagram.com/Abdulhakimbd16', icon: 'fab fa-instagram', subtitle: 'Follow on Instagram'},
+    {title: 'TikTok', url: 'https://www.tiktok.com/@abdul.hakim.69', icon: 'fab fa-tiktok', subtitle: 'Watch my TikTok videos'},
+    {title: 'YouTube', url: 'https://www.youtube.com/@YourChannel', icon: 'fab fa-youtube', subtitle: 'Subscribe on YouTube'},
+    {title: 'GitHub', url: 'https://github.com/master-404', icon: 'fab fa-github', subtitle: 'Explore my projects'},
+    {title: 'Telegram', url: 'https://t.me/AbdulHakimbd0', icon: 'fab fa-telegram-plane', subtitle: 'Join me on Telegram'},
+    {title: 'WhatsApp', url: 'https://wa.me/9710589391569', icon: 'fab fa-whatsapp', subtitle: 'Chat on WhatsApp'},
+    {title: 'LinkedIn', url: 'https://www.linkedin.com/in/abdul-hakim-4953b6396/', icon: 'fab fa-linkedin-in', subtitle: 'Connect on LinkedIn'},
+    {title: 'About Me', url: 'about.html', icon: 'fas fa-user', subtitle: 'Learn more about me'}
   ]
 };
 
@@ -97,11 +514,33 @@ document.getElementById('profileName').textContent = siteData.name;
 document.getElementById('profileBio').textContent = siteData.bio;
 document.getElementById('avatarImg').src = siteData.avatar;
 
+function animateCounter(element, target, duration = 2000) {
+  let start = 0;
+  const increment = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      element.textContent = target.toLocaleString();
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(start).toLocaleString();
+    }
+  }, 16);
+}
+
+setTimeout(() => {
+  animateCounter(document.getElementById('projectCount'), siteData.stats.projects);
+  animateCounter(document.getElementById('followerCount'), siteData.stats.followers);
+  animateCounter(document.getElementById('codeHours'), siteData.stats.codeHours);
+}, 500);
+
 const linksContainer = document.getElementById('linksContainer');
 const clickSound = document.getElementById('clickSound');
 const bgMusic = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
+let musicPlaying = false;
 
-siteData.links.forEach(link => {
+siteData.links.forEach((link, index) => {
   const a = document.createElement('a');
   a.className = 'link-btn';
   a.href = link.url;
@@ -109,23 +548,40 @@ siteData.links.forEach(link => {
   a.rel = 'noopener noreferrer';
   a.innerHTML = `
     <div class="link-icon"><i class="${link.icon}"></i></div>
-    <div style="text-align:left">
-      <div>${link.title}</div>
-      <div class="small">${link.subtitle}</div>
+    <div class="link-text">
+      <span class="link-title">${link.title}</span>
+      <span class="link-subtitle">${link.subtitle}</span>
     </div>
   `;
-  a.addEventListener('click', () => {
+  a.addEventListener('click', (e) => {
     clickSound.currentTime = 0;
-    clickSound.play().catch(() => {}); // এরর এড়ানো
+    clickSound.play().catch(() => {});
   });
   linksContainer.appendChild(a);
 });
 
-// Background music: প্রথম ইউজার ইন্টারঅ্যাকশনেই প্লে
-document.body.addEventListener('click', () => {
-  if (bgMusic.paused) {
-    bgMusic.volume = 0.15; // আরও কম ভলিউম
+musicToggle.addEventListener('click', () => {
+  if (musicPlaying) {
+    bgMusic.pause();
+    musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+    musicToggle.classList.remove('playing');
+    musicPlaying = false;
+  } else {
+    bgMusic.volume = 0.15;
     bgMusic.play().catch(() => {});
+    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+    musicToggle.classList.add('playing');
+    musicPlaying = true;
+  }
+});
+
+document.body.addEventListener('click', (e) => {
+  if (!musicPlaying && e.target !== musicToggle && !musicToggle.contains(e.target)) {
+    bgMusic.volume = 0.15;
+    bgMusic.play().catch(() => {});
+    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+    musicToggle.classList.add('playing');
+    musicPlaying = true;
   }
 }, { once: true });
 </script>
