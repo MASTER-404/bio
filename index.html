@@ -1,498 +1,213 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdul Hakim - Bio Link</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  
-  body {
-    font-family: 'Outfit', sans-serif;
-    background: #050505;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    position: relative;
-    overflow-x: hidden;
-  }
-  
-  .cyber-bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: 
-      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 75, 145, 0.3), transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(0, 245, 212, 0.2), transparent 50%);
-    z-index: 0;
-  }
-  
-  .grid-bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: 
-      linear-gradient(rgba(79, 172, 254, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(79, 172, 254, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: gridMove 20s linear infinite;
-    z-index: 1;
-  }
-  
-  @keyframes gridMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
-  }
-  
-  .stars {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    pointer-events: none;
-  }
-  
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #fff;
-    border-radius: 50%;
-    animation: twinkle 3s infinite;
-  }
-  
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 1; }
-  }
-  
-  main.card {
-    background: rgba(15, 15, 35, 0.85);
-    backdrop-filter: blur(20px);
-    padding: 50px 40px;
-    border-radius: 40px;
-    text-align: center;
-    width: 100%;
-    max-width: 480px;
-    box-shadow: 
-      0 20px 80px rgba(79, 172, 254, 0.3),
-      0 0 0 1px rgba(79, 172, 254, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    position: relative;
-    z-index: 3;
-    border: 1px solid rgba(79, 172, 254, 0.3);
-    animation: cardGlow 3s ease-in-out infinite;
-  }
-  
-  @keyframes cardGlow {
-    0%, 100% { box-shadow: 0 20px 80px rgba(79, 172, 254, 0.3), 0 0 0 1px rgba(79, 172, 254, 0.5); }
-    50% { box-shadow: 0 20px 100px rgba(255, 75, 145, 0.4), 0 0 0 1px rgba(255, 75, 145, 0.6); }
-  }
-  
-  .neon-border {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 40px;
-    padding: 2px;
-    background: linear-gradient(45deg, #4facfe, #00f2fe, #ff4b91, #4facfe);
-    background-size: 300% 300%;
-    animation: borderFlow 4s ease infinite;
-    z-index: -1;
-    opacity: 0.6;
-  }
-  
-  @keyframes borderFlow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  
-  .main-logo {
-    width: 100%;
-    max-width: 340px;
-    display: block;
-    margin: 0 auto 40px;
-    filter: drop-shadow(0 0 40px rgba(0, 242, 254, 0.8));
-    animation: logoGlow 2s ease-in-out infinite;
-  }
-  
-  @keyframes logoGlow {
-    0%, 100% { filter: drop-shadow(0 0 40px rgba(0, 242, 254, 0.8)); }
-    50% { filter: drop-shadow(0 0 60px rgba(255, 75, 145, 0.9)); }
-  }
-  
-  .cyber-line {
-    height: 2px;
-    width: 100%;
-    margin: 0 auto 35px;
-    background: linear-gradient(90deg, transparent, #4facfe, #00f2fe, #4facfe, transparent);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .cyber-line::before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, #fff, transparent);
-    animation: lineScan 2s linear infinite;
-  }
-  
-  @keyframes lineScan {
-    from { left: -100px; }
-    to { left: 100%; }
-  }
-  
-  .avatar-wrapper {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-  
-  .avatar-glow {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, #4facfe, #00f2fe, #ff4b91, #4facfe);
-    animation: rotate 3s linear infinite;
-    filter: blur(8px);
-  }
-  
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  .avatar-wrapper img {
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #000;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.5s;
-  }
-  
-  .avatar-wrapper:hover img {
-    transform: scale(1.1);
-  }
-  
-  h1#profileName {
-    font-size: 42px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #ff4b91 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: textShine 3s ease-in-out infinite;
-    letter-spacing: 2px;
-  }
-  
-  @keyframes textShine {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.8)); }
-    50% { filter: drop-shadow(0 0 20px rgba(255, 75, 145, 0.8)); }
-  }
-  
-  p.subtitle {
-    font-size: 16px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 40px;
-    font-weight: 400;
-    letter-spacing: 1px;
-  }
-  
-  .links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 30px;
-  }
-  
-  .link-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 12px;
-    border-radius: 20px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-    position: relative;
-    overflow: hidden;
-    background: rgba(79, 172, 254, 0.1);
-    border: 1px solid rgba(79, 172, 254, 0.3);
-    transition: all 0.3s;
-    cursor: pointer;
-  }
-  
-  .link-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(255, 75, 145, 0.2));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .link-btn:hover::before {
-    opacity: 1;
-  }
-  
-  .link-btn:hover {
-    transform: translateY(-5px);
-    border-color: rgba(79, 172, 254, 0.8);
-    box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
-  }
-  
-  .link-icon {
-    font-size: 32px;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .link-btn:hover .link-icon {
-    transform: scale(1.2) rotateY(360deg);
-  }
-  
-  .link-title {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .link-subtitle {
-    font-size: 11px;
-    opacity: 0.7;
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-  
-  .link-btn.facebook { border-color: rgba(24, 119, 242, 0.5); }
-  .link-btn.facebook:hover { border-color: #1877F2; box-shadow: 0 10px 30px rgba(24, 119, 242, 0.5); }
-  
-  .link-btn.instagram { border-color: rgba(225, 48, 108, 0.5); }
-  .link-btn.instagram:hover { border-color: #E1306C; box-shadow: 0 10px 30px rgba(225, 48, 108, 0.5); }
-  
-  .link-btn.tiktok { border-color: rgba(255, 255, 255, 0.5); }
-  .link-btn.tiktok:hover { border-color: #fff; box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3); }
-  
-  .link-btn.youtube { border-color: rgba(255, 0, 0, 0.5); }
-  .link-btn.youtube:hover { border-color: #FF0000; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5); }
-  
-  .link-btn.github { border-color: rgba(255, 255, 255, 0.5); }
-  .link-btn.github:hover { border-color: #fff; box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3); }
-  
-  .link-btn.telegram { border-color: rgba(0, 136, 204, 0.5); }
-  .link-btn.telegram:hover { border-color: #0088cc; box-shadow: 0 10px 30px rgba(0, 136, 204, 0.5); }
-  
-  .link-btn.whatsapp { border-color: rgba(37, 211, 102, 0.5); }
-  .link-btn.whatsapp:hover { border-color: #25D366; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5); }
-  
-  .link-btn.linkedin { border-color: rgba(10, 102, 194, 0.5); }
-  .link-btn.linkedin:hover { border-color: #0A66C2; box-shadow: 0 10px 30px rgba(10, 102, 194, 0.5); }
-  
-  .link-btn.about { border-color: rgba(79, 172, 254, 0.5); }
-  .link-btn.about:hover { border-color: #4facfe; box-shadow: 0 10px 30px rgba(79, 172, 254, 0.5); }
-  
-  footer {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    margin-top: 20px;
-    font-weight: 500;
-  }
-  
-  .music-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    border: 2px solid rgba(255,255,255,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 26px;
-    color: #fff;
-    transition: all 0.3s;
-    box-shadow: 0 5px 25px rgba(79, 172, 254, 0.6);
-    z-index: 999;
-  }
-  
-  .music-btn:hover {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 8px 35px rgba(79, 172, 254, 0.8);
-  }
-  
-  .music-btn.playing {
-    animation: musicBounce 0.8s ease-in-out infinite;
-  }
-  
-  @keyframes musicBounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-  }
-  
-  @media(max-width:520px) {
-    main.card { 
-      padding: 40px 25px;
-      max-width: 95%;
-      border-radius: 35px;
-    }
-    h1#profileName { font-size: 34px; }
-    .avatar-wrapper img { width: 150px; height: 150px; }
-    .main-logo { max-width: 280px; }
-    .links { grid-template-columns: 1fr; gap: 12px; }
-    .link-btn { padding: 20px 16px; }
-    .link-icon { font-size: 28px; }
-    .link-title { font-size: 14px; }
-    .music-btn { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 22px; }
-  }
-  
-  @media(min-width:521px) and (max-width:768px) {
-    .links { grid-template-columns: repeat(2, 1fr); }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Hakim - Bio Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Cyber Backgrounds */
+        .cyber-bg {
+            position: fixed;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 75, 145, 0.3), transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 245, 212, 0.2), transparent 50%);
+            z-index: 0;
+        }
+        
+        .grid-bg {
+            position: fixed;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            background-image: 
+                linear-gradient(rgba(79, 172, 254, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 172, 254, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .stars { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 2; pointer-events: none; }
+        .star { position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%; animation: twinkle 3s infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+
+        /* Main Card */
+        main.card {
+            background: rgba(15, 15, 35, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 480px;
+            position: relative;
+            z-index: 3;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            animation: cardGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes cardGlow {
+            0%, 100% { box-shadow: 0 20px 80px rgba(79, 172, 254, 0.3); }
+            50% { box-shadow: 0 20px 100px rgba(255, 75, 145, 0.4); }
+        }
+        
+        .logo-text {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4facfe, #ff4b91);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Profile Section */
+        .avatar-wrapper { position: relative; display: inline-block; margin-bottom: 20px; }
+        .avatar-glow {
+            position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border-radius: 50%; background: linear-gradient(45deg, #4facfe, #ff4b91);
+            animation: rotate 3s linear infinite; filter: blur(5px);
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        .avatar-wrapper img {
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 4px solid #000; position: relative; z-index: 1; object-fit: cover;
+        }
+
+        h1#profileName { color: #fff; font-size: 32px; margin-bottom: 5px; }
+        p.subtitle { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 30px; }
+
+        /* Links Grid */
+        .links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .link-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 15px; padding: 15px;
+            text-decoration: none; color: #fff;
+            transition: 0.3s; display: flex; flex-direction: column; align-items: center;
+            cursor: pointer;
+        }
+        .link-btn:hover { transform: translateY(-5px); background: rgba(79, 172, 254, 0.2); border-color: #4facfe; }
+        .link-icon { font-size: 24px; margin-bottom: 8px; }
+        .link-title { font-size: 14px; font-weight: 700; }
+        .link-subtitle { font-size: 10px; opacity: 0.6; }
+
+        footer { margin-top: 30px; color: rgba(255,255,255,0.3); font-size: 12px; }
+
+        @media(max-width:480px) {
+            .links { grid-template-columns: 1fr; }
+            main.card { padding: 30px 20px; }
+        }
+    </style>
 </head>
 <body>
+
 <div class="cyber-bg"></div>
 <div class="grid-bg"></div>
 <div class="stars" id="starsContainer"></div>
 
 <main class="card">
-  <div class="neon-border"></div>
-  
-  <img src="https://raw.githubusercontent.com/MASTER-404/bio/main/logo.png" alt="MASTER404 Logo" class="main-logo">
-  
-  <div class="cyber-line"></div>
-  
-  <div class="avatar-wrapper">
-    <div class="avatar-glow"></div>
-    <img src="1763026669531.png" alt="Abdul Hakim">
-  </div>
-  
-  <h1 id="profileName">Abdul Hakim</h1>
-  <p class="subtitle">Developer • Content Creator • Tech Enthusiast</p>
-  
-  <div class="links" id="linksContainer"></div>
-  
-  <footer>Made with ❤️ by MASTER404</footer>
+    <h2 class="logo-text">MASTER404</h2>
+    
+    <div class="avatar-wrapper">
+        <div class="avatar-glow"></div>
+        <img src="1763026669531.png" alt="Abdul Hakim">
+    </div>
+    
+    <h1 id="profileName">Abdul Hakim</h1>
+    <p class="subtitle">Python Developer • Content Creator</p>
+    
+    <div class="links" id="linksContainer"></div>
+    
+    <footer>Made with ❤️ by MASTER404</footer>
 </main>
 
-<div class="music-btn" id="musicBtn">
-  <i class="fas fa-music"></i>
-</div>
-
 <audio id="bgMusic" loop>
-  <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+    <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
 </audio>
 <audio id="clickSound">
-  <source src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" type="audio/mpeg">
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-click-release-yee-1123.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const siteData = {
-  links: [
-    {title: 'Facebook', url: 'https://facebook.com/Abdulhakimbd16', icon: 'fab fa-facebook-f', subtitle: 'Follow Me', class: 'facebook'},
-    {title: 'Instagram', url: 'https://instagram.com/Abdulhakimbd16', icon: 'fab fa-instagram', subtitle: 'Follow Me', class: 'instagram'},
-    {title: 'TikTok', url: 'https://www.tiktok.com/@abdul.hakim.69', icon: 'fab fa-tiktok', subtitle: 'Watch Videos', class: 'tiktok'},
-    {title: 'YouTube', url: 'https://www.youtube.com/@YourChannel', icon: 'fab fa-youtube', subtitle: 'Subscribe Now', class: 'youtube'},
-    {title: 'GitHub', url: 'https://github.com/master-404', icon: 'fab fa-github', subtitle: 'View Projects', class: 'github'},
-    {title: 'Telegram', url: 'https://t.me/AbdulHakimbd0', icon: 'fab fa-telegram-plane', subtitle: 'Join Channel', class: 'telegram'},
-    {title: 'WhatsApp', url: 'https://wa.me/9710589391569', icon: 'fab fa-whatsapp', subtitle: 'Chat Now', class: 'whatsapp'},
-    {title: 'LinkedIn', url: 'https://www.linkedin.com/in/abdul-hakim-4953b6396/', icon: 'fab fa-linkedin-in', subtitle: 'Connect', class: 'linkedin'},
-    {title: 'About Me', url: 'about.html', icon: 'fas fa-user', subtitle: 'Learn More', class: 'about'}
-  ]
+    links: [
+        {title: 'Facebook', url: 'https://facebook.com/Abdulhakimbd16', icon: 'fab fa-facebook-f', subtitle: 'Follow Me', class: 'facebook'},
+        {title: 'YouTube', url: 'https://www.youtube.com/@YourChannel', icon: 'fab fa-youtube', subtitle: 'Subscribe', class: 'youtube'},
+        {title: 'GitHub', url: 'https://github.com/master-404', icon: 'fab fa-github', subtitle: 'Projects', class: 'github'},
+        {title: 'WhatsApp', url: 'https://wa.me/9710589391569', icon: 'fab fa-whatsapp', subtitle: 'Chat', class: 'whatsapp'},
+        {title: 'LinkedIn', url: 'https://www.linkedin.com/in/abdul-hakim-4953b6396/', icon: 'fab fa-linkedin-in', subtitle: 'Connect', class: 'linkedin'},
+        {title: 'Telegram', url: 'https://t.me/AbdulHakimbd0', icon: 'fab fa-telegram-plane', subtitle: 'Join', class: 'telegram'}
+    ]
 };
 
-for(let i = 0; i < 30; i++) {
-  const star = document.createElement('div');
-  star.className = 'star';
-  star.style.left = Math.random() * 100 + '%';
-  star.style.top = Math.random() * 100 + '%';
-  star.style.animationDelay = Math.random() * 3 + 's';
-  document.getElementById('starsContainer').appendChild(star);
+// Stars Creation
+const starsContainer = document.getElementById('starsContainer');
+for(let i=0; i<30; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    starsContainer.appendChild(star);
 }
 
-const linksContainer = document.getElementById('linksContainer');
-const clickSound = document.getElementById('clickSound');
+const container = document.getElementById('linksContainer');
 const bgMusic = document.getElementById('bgMusic');
-const musicBtn = document.getElementById('musicBtn');
-let musicPlaying = false;
+const clickSound = document.getElementById('clickSound');
 
-siteData.links.forEach((link, index) => {
-  const a = document.createElement('a');
-  a.className = `link-btn ${link.class}`;
-  a.href = link.url;
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
-  a.innerHTML = `
-    <div class="link-icon"><i class="${link.icon}"></i></div>
-    <div class="link-title">${link.title}</div>
-    <div class="link-subtitle">${link.subtitle}</div>
-  `;
-  a.addEventListener('click', () => {
-    clickSound.currentTime = 0;
-    clickSound.play().catch(() => {});
-  });
-  linksContainer.appendChild(a);
+// Render Links with Click Sound
+siteData.links.forEach(link => {
+    const a = document.createElement('a');
+    a.className = `link-btn ${link.class}`;
+    a.href = link.url;
+    a.target = '_blank';
+    a.innerHTML = `
+        <i class="${link.icon} link-icon"></i>
+        <span class="link-title">${link.title}</span>
+        <span class="link-subtitle">${link.subtitle}</span>
+    `;
+    
+    a.addEventListener('click', () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    });
+    
+    container.appendChild(a);
 });
 
-musicBtn.addEventListener('click', () => {
-  if (musicPlaying) {
-    bgMusic.pause();
-    musicBtn.innerHTML = '<i class="fas fa-music"></i>';
-    musicBtn.classList.remove('playing');
-    musicPlaying = false;
-  } else {
-    bgMusic.volume = 0.2;
-    bgMusic.play().catch(() => {});
-    musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    musicBtn.classList.add('playing');
-    musicPlaying = true;
-  }
-});
-
-document.body.addEventListener('click', (e) => {
-  if (!musicPlaying && e.target !== musicBtn && !musicBtn.contains(e.target)) {
-    bgMusic.volume = 0.2;
-    bgMusic.play().catch(() => {});
-    musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    musicBtn.classList.add('playing');
-    musicPlaying = true;
-  }
+// Background Music Auto-play on first interaction
+document.addEventListener('click', () => {
+    bgMusic.volume = 0.3;
+    bgMusic.play();
 }, { once: true });
+
 </script>
 </body>
 </html>
